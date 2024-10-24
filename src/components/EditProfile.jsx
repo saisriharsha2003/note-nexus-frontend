@@ -5,6 +5,7 @@ import { BASE_URL } from "../config";
 import { useNavigate } from "react-router-dom";
 import Nav from "../components/Nav";
 import BeatLoader from "react-spinners/BeatLoader";
+import ChangePassword from "./ChangePassword";
 
 const EditProfile = () => {
   const uname = localStorage.getItem("username");
@@ -14,7 +15,8 @@ const EditProfile = () => {
     name: "",
     email: "",
     mobile: "",
-    uname: "",
+    uname: "",         // Existing username
+    newUname: "",      // New username field
   });
 
   const [errorMessages, setErrorMessages] = useState({
@@ -26,14 +28,15 @@ const EditProfile = () => {
     const fetchUserDetails = async () => {
       setLoading(true);
       try {
-        console.log(uname);
-        const response = await axios.get(`${BASE_URL}/api/user/profile`, uname);
+        const response = await axios.get(`${BASE_URL}/api/user/profile/${uname}`);
+        toast.success("Fetching Details...");
         const userData = response.data;
         setFormData({
           name: userData.name,
           email: userData.email,
           mobile: userData.mobile,
           uname: userData.uname,
+          newUname: "", 
         });
       } catch (error) {
         toast.error("Failed to load profile details.");
@@ -43,7 +46,7 @@ const EditProfile = () => {
     };
 
     fetchUserDetails();
-  }, []);
+  }, [uname]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -59,13 +62,17 @@ const EditProfile = () => {
 
     try {
       const response = await axios.put(
-        `${BASE_URL}/api/user/update-profile`,
+        `${BASE_URL}/api/user/update-profile/${uname}`,
         formData
       );
 
-      toast.success("Profile updated successfully!");
+      toast.success(response.data.message);
       setTimeout(() => {
-        navigate("/profile");
+        toast.success("Redirecting to User Profile...");
+        localStorage.setItem("username", response.data.user.uname);
+        setTimeout(() => {
+          navigate("/edit-profile");
+        }, 1000);
       }, 2000);
     } catch (error) {
       toast.error("Error updating profile.");
@@ -119,12 +126,23 @@ const EditProfile = () => {
                 />
               </div>
               <div className="input-box">
-                <span className="details">Username</span>
+                <span className="details">Current Username</span>
                 <input
                   type="text"
                   name="uname"
-                  placeholder="Enter your Username"
+                  placeholder="Current Username"
                   value={formData.uname}
+                  onChange={handleChange}
+                  readOnly // Keep existing username read-only
+                />
+              </div>
+              <div className="input-box">
+                <span className="details">New Username</span>
+                <input
+                  type="text"
+                  name="newUname"
+                  placeholder="Enter your New Username"
+                  value={formData.newUname}
                   onChange={handleChange}
                 />
               </div>
@@ -135,6 +153,7 @@ const EditProfile = () => {
               </button>
             </div>
           </form>
+          <ChangePassword />
         </div>
       </div>
     </div>

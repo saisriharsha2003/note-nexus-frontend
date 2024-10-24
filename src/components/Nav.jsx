@@ -70,11 +70,6 @@ const Nav = () => {
               <p>Edit Profile</p>
               <span className="ext">&gt;</span>
             </Link>
-            <Link to="/delete-profile" className="sub-menu-link">
-              <img src={delete1} alt="Delete Account" style={{ width: '50px', height: '50px' }} />
-              <p>Delete Account</p>
-              <span className="ext">&gt;</span>
-            </Link>
             <Link to="/" className="sub-menu-link" onClick={handleLogout}>
               <img src={logout} alt="Logout" style={{ width: '50px', height: '50px' }} />
               <p>Logout</p>

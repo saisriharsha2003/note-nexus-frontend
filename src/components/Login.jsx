@@ -88,9 +88,7 @@ const Login = () => {
       }
     } catch (err) {
       console.error(err.response);
-      toast.error(
-        err.response?.data?.message || "An error occurred. Please try again."
-      );
+      toast.error(err.response.data.Error);
     }
   };
 
