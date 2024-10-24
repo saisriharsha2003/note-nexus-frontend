@@ -1,36 +1,33 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import '../index.css'; 
 import user from "../assets/user.png";
 import edit from "../assets/edit.png";
 import delete1 from "../assets/delete.png";
-import logout from "../assets/logout.png"
+import logout from "../assets/logout.png";
 import toast from 'react-hot-toast';
-import logo from "../assets/logo.png"
-import { useNavigate } from 'react-router-dom';
+import logo from "../assets/logo.png";
 
 const Nav = () => {
-
   const [userName, setUserName] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
-    const storedUserName = localStorage.getItem('name');
+    const storedUserName = localStorage.getItem('name'); 
     if (storedUserName) {
       setUserName(storedUserName);
     }
   }, []);
 
   const handleLogout = () => {
-    toast.success("Logging off...")
-    localStorage.removeItem('username');
+    toast.success("Logging off...");
+    localStorage.removeItem('name'); 
     navigate("/");
   };
 
   const toggleMenu = () => {
-    if (document.getElementById("subMenu")) {
-      let subm = document.getElementById("subMenu");
+    const subm = document.getElementById("subMenu");
+    if (subm) {
       subm.classList.toggle("open-menu");
     }
   };
@@ -39,7 +36,7 @@ const Nav = () => {
     <div className="hero">
       <nav>
         <Link to="/home">
-          <img className="logo" src= { logo } alt="App Logo" />
+          <img className="logo" src={logo} alt="App Logo" />
         </Link>
 
         <ul>
@@ -58,7 +55,7 @@ const Nav = () => {
           src={user}
           className="user-pic"
           alt="User"
-          onClick={toggleMenu} 
+          onClick={toggleMenu}
         />
 
         <div className="sub-menu-wrap" id="subMenu">
@@ -86,14 +83,6 @@ const Nav = () => {
           </div>
         </div>
       </nav>
-
-      <div className="signup">
-        <div className="container" style={{ backgroundColor: 'black', opacity: 0.8 }}>
-          <p style={{ fontSize: '40px', fontWeight: 600, color: '#CCBA78', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-            Welcome to <span className="homep">NoteNexus</span>
-          </p>
-        </div>
-      </div>
     </div>
   );
 };

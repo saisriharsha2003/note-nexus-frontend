@@ -316,6 +316,20 @@ form .user-details .input-box
 	 color: white;
 }
 
+
+form .user-details .input-box1 
+{
+	 margin-bottom: 9px;
+	 width: 100%;
+}
+.user-details .input-box1 .details 
+{
+	 display: block;
+	 font-weight: 500;
+	 margin-bottom: 5px;
+	 color: white;
+}
+
 .drtitle
 {
 	 height: 35px;
@@ -343,7 +357,24 @@ form .user-details .input-box
 	color: white;
   
 }
-.user-details .input-box textarea
+
+.user-details .input-box1 input 
+{
+	height: 35px;
+	width: 100%;
+	outline: none;
+	border-radius: 5px;
+	background-color: #0e0e10d8;
+	border: 1px solid #ccc;
+	padding-left: 15px;
+	font-size: 14px;
+	border-bottom-width: 2px;
+	transition: all 0.3s ease;
+	color: white;
+  
+}
+
+.user-details .input-box1 textarea
 {
 	outline: none;
 	border-radius: 5px;
@@ -351,7 +382,11 @@ form .user-details .input-box
 	font-size: 14px;
 	border-bottom-width: 2px;
 	transition: all 0.3s ease;
-	
+	padding-left: 15px;
+} 
+
+.user-details .input-box1 textarea::placeholder {
+	padding-top: 10px;
 } 
 
 .user-details .input-box input:focus,
@@ -360,6 +395,16 @@ form .user-details .input-box
 }
 
 .user-details .input-box textarea:focus
+{
+	border-color: #CCBA78;
+}
+
+.user-details .input-box1 input:focus,
+.user-details .input-box1 input:valid{
+	border-color: #CCBA78;
+}
+
+.user-details .input-box1 textarea:focus
 {
 	border-color: #CCBA78;
 }
