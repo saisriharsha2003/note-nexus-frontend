@@ -74,7 +74,11 @@ const Login = () => {
       toast.success(response.data.message);
       if (response.status === 200) {
         const name = response.data.name;
+        const username = response.data.username;
+
         localStorage.setItem("name", name);
+        localStorage.setItem("username", username);
+
         setTimeout(() => {
           toast.success("Redirecting to Home...");
           setTimeout(() => {

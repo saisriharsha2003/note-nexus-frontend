@@ -48,9 +48,12 @@ const AddNote = () => {
     e.preventDefault();
     setLoading(true);
   
+    const owner = localStorage.getItem("name");
+  
     try {
       const response = await axios.post(`${BASE_URL}/api/user/add-note`, {
-        ...formData
+        ...formData,
+        owner, 
       });
       
       toast.success(response.data.message);

@@ -93,7 +93,7 @@ const Register = () => {
     try {
       const response = await axios.post(
         BASE_URL + "/api/user/register",
-        { ...formData, mobile: phoneNumber },
+        formData,
         {
           headers: {
             "Content-Type": "application/json",

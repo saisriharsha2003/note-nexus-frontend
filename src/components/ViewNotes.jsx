@@ -35,16 +35,7 @@ const ViewNotes = () => {
   };
 
   const handleDelete = async (noteId) => {
-    try {
-      const response = await axios.delete(
-        `${BASE_URL}/api/user/delete-note/${noteId}`
-      );
-      toast.success(response.data.message);
-      setNotes(notes.filter((note) => note._id !== noteId));
-    } catch (error) {
-      toast.error("Failed to delete note.");
-      console.error("Error deleting note:", error);
-    }
+    navigate(`/delete-note/${noteId}`);
   };
 
   const handleView = (noteId) => {
@@ -64,6 +55,7 @@ const ViewNotes = () => {
             <table className="paybill w-full">
               <thead>
                 <tr>
+                  <th className="w-full">Author</th>
                   <th className="w-full">Title</th>
                   <th className="w-full">Content</th>
                   <th className="w-full">Actions</th>
@@ -73,6 +65,7 @@ const ViewNotes = () => {
                 {notes.length > 0 ? (
                   notes.map((note) => (
                     <tr key={note._id}>
+                      <td className="w-full">{note.owner}</td>
                       <td className="w-full">{note.title}</td>
                       <td className="w-full">
                         {note.content.length > MAX_CONTENT_LENGTH
