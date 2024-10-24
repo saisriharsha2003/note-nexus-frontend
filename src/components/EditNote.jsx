@@ -43,7 +43,6 @@ const EditNote = () => {
 
   const handleSave = async () => {
     try {
-      console.log(formData);
       const response = await axios.put(
         `${BASE_URL}/api/user/edit-note`,
         { ...formData, id: id }

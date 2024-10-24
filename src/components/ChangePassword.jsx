@@ -3,7 +3,7 @@ import axios from "axios";
 import { toast } from "react-hot-toast";
 import { BASE_URL } from "../config"; 
 import { useNavigate } from "react-router-dom";
-import { FaEye, FaEyeSlash } from "react-icons/fa"; // Import eye icons
+import { FaEye, FaEyeSlash } from "react-icons/fa"; 
 import Nav from "../components/Nav"; 
 
 const ChangePassword = () => {

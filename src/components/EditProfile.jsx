@@ -15,8 +15,8 @@ const EditProfile = () => {
     name: "",
     email: "",
     mobile: "",
-    uname: "",         // Existing username
-    newUname: "",      // New username field
+    uname: "",       
+    newUname: "",      
   });
 
   const [errorMessages, setErrorMessages] = useState({
@@ -133,7 +133,7 @@ const EditProfile = () => {
                   placeholder="Current Username"
                   value={formData.uname}
                   onChange={handleChange}
-                  readOnly // Keep existing username read-only
+                  readOnly
                 />
               </div>
               <div className="input-box">

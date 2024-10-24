@@ -16,15 +16,8 @@ const DeleteNote = () => {
     navigate("/view-notes");
   };
 
-  const handleProceed = () => {
-    console.log("Proceed with deletion");
-
-    navigate("/deletion-success");
-  };
-
   const handleDelete = async () => {
     try {
-      console.log(id);
       const response = await axios.delete(
         `${BASE_URL}/api/user/delete-note/${id}`
       );

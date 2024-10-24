@@ -89,7 +89,6 @@ const Register = () => {
     setLoading(true);
 
     const phoneNumber = formData.mobile;
-    console.log(formData);
     try {
       const response = await axios.post(
         BASE_URL + "/api/user/register",
@@ -100,9 +99,7 @@ const Register = () => {
           },
         }
       );
-
-      console.log("Response:", response);
-
+      
       toast.success(response.data.message);
 
       setTimeout(() => {

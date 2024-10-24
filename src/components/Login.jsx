@@ -59,7 +59,7 @@ const Login = () => {
       toast.error("Fill all details properly");
       return;
     }
-    console.log(formData);
+    
     try {
       const response = await axios.post(
         BASE_URL + "/api/user/login",
