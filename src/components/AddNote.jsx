@@ -52,9 +52,16 @@ const AddNote = () => {
       const response = await axios.post(`${BASE_URL}/api/user/add-note`, {
         ...formData
       });
-  
+      
       toast.success(response.data.message);
-      navigate("/home");
+
+      setTimeout(() => {
+        toast.success("Redirecting to View Notes");
+        setTimeout(() => {
+            navigate("/view-notes");
+        }, 1000);
+      }, 2000);
+
     } catch (error) {
       toast.error("Error adding note.");
       setErrorMessages({

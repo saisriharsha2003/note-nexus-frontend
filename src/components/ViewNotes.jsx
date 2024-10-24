@@ -3,18 +3,22 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import Nav from "../components/Nav";
 import { BASE_URL } from "../config";
-import "font-awesome/css/font-awesome.min.css"; 
+import { useNavigate } from "react-router-dom";
+import "font-awesome/css/font-awesome.min.css";
 
 const ViewNotes = () => {
   const [notes, setNotes] = useState([]);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
+
+  const MAX_CONTENT_LENGTH = 10;
 
   useEffect(() => {
     const fetchNotes = async () => {
       try {
         const response = await axios.get(`${BASE_URL}/api/user/view-notes`);
-        setNotes(response.data.notes || []); 
-        toast.success(response.data.message); 
+        setNotes(response.data.notes || []);
+        toast.success(response.data.message);
       } catch (error) {
         toast.error("Failed to fetch notes.");
         console.error("Error fetching notes:", error);
@@ -27,7 +31,7 @@ const ViewNotes = () => {
   }, []);
 
   const handleEdit = (noteId) => {
-    console.log(`Edit note with ID: ${noteId}`);
+    navigate(`/edit-note/${noteId}`);
   };
 
   const handleDelete = async (noteId) => {
@@ -36,18 +40,22 @@ const ViewNotes = () => {
         `${BASE_URL}/api/user/delete-note/${noteId}`
       );
       toast.success(response.data.message);
-      setNotes(notes.filter((note) => note.noteid !== noteId));
+      setNotes(notes.filter((note) => note._id !== noteId));
     } catch (error) {
       toast.error("Failed to delete note.");
       console.error("Error deleting note:", error);
     }
   };
 
+  const handleView = (noteId) => {
+    navigate(`/view-note/${noteId}`);
+  };
+
   return (
     <div>
       <Nav />
       <div className="bg1">
-        <div className="container">
+        <div className="container" style={{ maxWidth: "1000px" }}>
           <h2 className="title">All Notes</h2>
 
           {loading ? (
@@ -56,37 +64,56 @@ const ViewNotes = () => {
             <table className="paybill w-full">
               <thead>
                 <tr>
-                  <th className="w-full">Note ID</th>
                   <th className="w-full">Title</th>
                   <th className="w-full">Content</th>
-                  <th className="w-full">Actions</th> 
+                  <th className="w-full">Actions</th>
                 </tr>
               </thead>
               <tbody>
                 {notes.length > 0 ? (
                   notes.map((note) => (
-                    <tr key={note.noteid}>
-                      <td className="w-full">{note.noteid}</td>
+                    <tr key={note._id}>
                       <td className="w-full">{note.title}</td>
-                      <td className="w-full">{note.content}</td>
+                      <td className="w-full">
+                        {note.content.length > MAX_CONTENT_LENGTH
+                          ? `${note.content.slice(0, MAX_CONTENT_LENGTH)}...`
+                          : note.content}
+                        {note.content.length > MAX_CONTENT_LENGTH && (
+                          <button
+                            onClick={() => handleView(note._id)}
+                            className="text-blue-500 ml-2"
+                          >
+                            Read More
+                          </button>
+                        )}
+                      </td>
                       <td className="w-full">
                         <button
-                          onClick={() => handleEdit(note.noteid)}
+                          onClick={() => handleView(note._id)}
+                          className="mr-4 text-blue-500"
+                        >
+                          <i
+                            className="fa fa-eye text-3xl"
+                            aria-hidden="true"
+                          ></i>
+                        </button>
+                        <button
+                          onClick={() => handleEdit(note._id)}
                           className="mr-4"
                         >
                           <i
                             className="fa fa-pencil text-3xl"
                             aria-hidden="true"
-                          ></i>{" "}
+                          ></i>
                         </button>
                         <button
-                          onClick={() => handleDelete(note.noteid)}
+                          onClick={() => handleDelete(note._id)}
                           className="text-red-500"
                         >
                           <i
                             className="fa fa-trash text-3xl"
                             aria-hidden="true"
-                          ></i>{" "}
+                          ></i>
                         </button>
                       </td>
                     </tr>

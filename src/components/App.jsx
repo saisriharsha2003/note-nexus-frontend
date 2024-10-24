@@ -8,6 +8,8 @@ import Login from './Login';
 import Home from './Home';
 import AddNote from './AddNote';
 import ViewNotes from './ViewNotes';
+import ViewNote from './ViewNote';
+import EditNote from './EditNote';
 
 function App() {
   return (
@@ -20,6 +22,9 @@ function App() {
           <Route path="/home" element={<Home/>}/>
           <Route path="/add-note" element={<AddNote/>}/>
           <Route path="/view-notes" element={<ViewNotes/>}/>
+          <Route path="/view-note/:id" element={<ViewNote />} />
+          <Route path="/edit-note/:id" element={<EditNote />} />
+
 
         </Route>
       </Routes>
