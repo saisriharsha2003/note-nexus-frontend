@@ -1,13 +1,797 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*
+{
+	font-family: 'Poppins', sans-serif;
+	margin:0px;
+	box-sizing: border-box;
+}
+.lmessage
+{
+	font-size: 15px;
+	color:red;
+	font-weight: 500;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.edit-message
+{
+	font-size: 15px;
+	color:red;
+	font-weight: 500;
+}
+.us_name
+{
+	background-color: white;
+	padding: 10px;
+	border-radius: 10px;
+	height: 40px;
+	color: #000000;
+	background: linear-gradient(60deg, #CCBA78, white);
+
+}
+.lmessage1
+{
+	font-size: 15px;
+	color:red;
+	display: flex;
+	justify-content: center;
+	font-weight: 500;
+	margin-top: 20px;
+	margin-bottom: -10px;
+}
+.message
+{
+	font-size: 15px;
+	color:red;
+	font-weight: 500;
+}
+.details-cont
+{
+	
+	margin-left: 9px;
+}
+
+.homep
+{
+	color: #fff;
+	overflow: hidden; 
+	border-right: .15em solid #CCBA78;
+	white-space: nowrap; 
+	margin-left: 10px;
+	letter-spacing: .1em; 
+	animation: 
+	  typing 3.5s steps(20, end) infinite,
+	  blink-caret .5s step-end infinite;
+}
+body{
+	height: 100vh;
+}
+@keyframes typing {
+	from { width: 0 }
+	to { width: 37% }
+}
+
+@keyframes blink-caret {
+	from, to { border-color: transparent }
+	50% { border-color: #CCBA78 }
+}
+.paybill
+{
+	border-collapse: collapse;
+	border-radius: 10px;
+	overflow: hidden;
+	
+}
+.pat
+{
+	display: flex; 
+	justify-content: flex-end; 
+	padding:10px; 
+	font-size: 18px;
+	color: red;
+	font-weight: 600;
+}
+.paybill thead
+{
+	background: linear-gradient(-135deg, #e9c979, #CCBA78);
+}
+.paybill tbody
+{
+		border: 1px solid #CCBA78;
+	
+}
+.paybill th 
+{
+	width: auto;
+	height: 10px;
+	padding: 15px;
+	text-align: center;
+}
+.paybill td
+{
+	width: auto;
+	height: 10px;
+	padding: 13px;
+	text-align: center;
+	
+}
+.paybill .ps
+{
+	width: auto;
+}
+
+.paybilldet
+{
+	border-collapse: collapse;
+	border-radius: 10px;
+	overflow: hidden;
+	width: 90%;
+	
+}
+.paybilldet thead
+{
+	background: linear-gradient(-135deg, #e9c979, #CCBA78);
+}
+.paybilldet tbody
+{
+		border: 1px solid #CCBA78;
+		height: 50px;
+	
+}
+
+.flexcenter
+{
+	display: flex;
+	justify-content: center;
+}
+.paybilldet th 
+{
+	width: auto;
+	height: 15px;
+	padding: 10px;
+	text-align: center;
+}
+.paybilldet td
+{
+	width: auto;
+	height: 15px;
+	padding: 10px;
+	text-align: center;
+	
+}
+.status-paid {
+   	color: #4CAF50; 
+    font-weight: 700;
+}
+.status-unpaid {
+    color: #F44336; 
+    font-weight: 700;
+}
+.status-partially-paid {
+    color: #FFC107;
+    font-weight: 700;
+}
+.status-overdue {
+    color: #800080; 
+    font-weight: 700;
+}
+.col
+{
+	margin-left: 15px;
+}
+.cust
+{
+	
+	font-weight: 600;
+	font-size: 16px;
+}
+.cust1
+{
+	margin-left: 25px;
+}
+.message.match
+{
+	color: green;
+	font-weight: 500;
+}
+.edit-message.match
+{
+	color: green;
+	font-weight: 500;
+}
+.login_message.match
+{
+	color: green;
+	font-weight: 500;
+}
+.asignup
+{
+	margin-top: 30px;
+	margin-bottom: -10px;
+	display: flex;
+	justify-content: center;
+	
+}
+.bsignup
+{
+	margin-left: 5px;
+	margin-right: 5px;
+	font-weight: 500;
+	text-decoration: underline;
+}
+.signup
+{
+ 	background: url(assets/image1.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	display: flex;
+	justify-content: center;
+	align-items:center;
+	height: 100vh;
+	width: 100%;
+	background-attachment: scroll;
+	background-position: center;
+}
+placeholder
+{
+	font-family: 'Poppins', sans-serif;
+}
+.container
+{
+	 max-width: 700px;
+	 width: 100%;
+	 height: auto;
+	 background: black;
+	 padding: 30px 30px;
+	 border-radius: 10px;
+}
+
+
+.container .title
+{
+	 font-size: 30px;
+	 font-weight: 600;
+	 display: flex;
+	 justify-content: center;
+	
+	 margin-bottom: 10px;
+	 color:  #CCBA78;
+}
+
+.container .title1
+{
+	 font-size: 30px;
+	 font-weight: 600;
+	 display: flex;
+	 justify-content: center;
+	
+	 color:  #CCBA78;
+}
+.container form .user-details
+{
+	 display: flex;
+	 flex-wrap: wrap;
+	 justify-content: space-between;
+}
+.container1
+{
+	 max-width: 1000px;
+	 width: 100%;
+	 height: auto;
+	 background: black;
+	 padding: 30px 30px;
+	 border-radius: 10px;
+}
+.container1 .title
+{
+	 font-size: 30px;
+	 font-weight: 600;
+	 display: flex;
+	 justify-content: center;
+	
+	 margin-bottom: 10px;
+	 color:  #CCBA78;
+}
+
+.container1 form .user-details
+{
+	 display: flex;
+	 flex-wrap: wrap;
+	 justify-content: space-between;
+}
+
+form .user-details .input-box 
+{
+	 margin-bottom: 9px;
+	 width: calc(100% / 2 - 20px);
+}
+.user-details .input-box .details 
+{
+	 display: block;
+	 font-weight: 500;
+	 margin-bottom: 5px;
+	 color: white;
+}
+
+.drtitle
+{
+	 height: 35px;
+	 width: 100%;
+	 outline: none;
+	 border-radius: 5px;
+	 border: 1px solid #ccc;
+	 padding-left: 15px;
+	 font-size: 14px;
+	 border-bottom-width: 2px;
+	 transition: all 0.3s ease;
+}
+.user-details .input-box input 
+{
+	height: 35px;
+	width: 100%;
+	outline: none;
+	border-radius: 5px;
+	background-color: #0e0e10d8;
+	border: 1px solid #ccc;
+	padding-left: 15px;
+	font-size: 14px;
+	border-bottom-width: 2px;
+	transition: all 0.3s ease;
+	color: white;
+  
+}
+.user-details .input-box textarea
+{
+	outline: none;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+	font-size: 14px;
+	border-bottom-width: 2px;
+	transition: all 0.3s ease;
+	
+} 
+
+.user-details .input-box input:focus,
+.user-details .input-box input:valid{
+	border-color: #CCBA78;
+}
+
+.user-details .input-box textarea:focus
+{
+	border-color: #CCBA78;
+}
+.sbutton button
+{
+	height: 40px;
+	width: 100%;
+	outline: none;
+	color: #fff;
+	border: none;
+	font-size: 18px;
+	font-weight: 500;
+	border-radius: 5px;
+	margin-top: 10px;
+	letter-spacing: 1px;
+	background: linear-gradient(135deg, #000000, #CCBA78);
+	
+}
+.sbutton button:hover
+{
+	background: linear-gradient(-135deg, #000000, #CCBA78);
+}
+
+.delete-button button
+{
+	height: 40px;
+	width: 100%;
+	outline: none;
+	color: #fff;
+	border: none;
+	font-size: 18px;
+	font-weight: 500;
+	border-radius: 5px;
+	margin-top: 10px;
+	letter-spacing: 1px;
+	background-color: red;
+	
+}
+.delete-button button:hover
+{
+	background-color: red;
+}
+
+.nodelete-button button
+{
+	height: 40px;
+	width: 100%;
+	outline: none;
+	color: #fff;
+	border: none;
+	font-size: 18px;
+	font-weight: 500;
+	border-radius: 5px;
+	margin-top: 10px;
+	letter-spacing: 1px;
+	background-color: green;
+	
+}
+.nodelete-button button:hover
+{
+	background-color: green;
+}
+#adstcmp 
+{
+	height: 50px;
+	width: 100%;
+	outline: none;
+	color: #fff;
+	border: none;
+	font-size: 18px;
+	font-weight: 500;
+	border-radius: 5px;
+	margin-top: 10px;
+	letter-spacing: 1px;
+	padding: 10px 10px;
+	background: linear-gradient(135deg, #000000, #CCBA78);
+	
+}
+
+
+#up_comp_no
+{
+	width:88px;
+	border-style: none;
+	font-size: 16px;
+}
+#adstcmp:hover
+{
+	background: linear-gradient(-135deg, #000000, #CCBA78);
+}
+
+form .button button
+{
+	height: 40px;
+	width: 100%;
+	outline: none;
+	color: #fff;
+	border: none;
+	font-size: 18px;
+	font-weight: 500;
+	border-radius: 5px;
+	margin-top: 10px;
+	margin-bottom: -10px;
+	letter-spacing: 1px;
+	background: linear-gradient(135deg, #000000, #CCBA78);
+
+}
+form .button button:hover
+{
+	background: linear-gradient(-135deg, #000000, #CCBA78);
+}
+
+.title {
+	color: #5C6AC4;
+}
+
+*
+{
+	border: 0;
+	margin: 0;
+	box-sizing: border-box;
+	padding: 0;
+}
+.hero
+{
+	background: black;
+	color: white;
+	width: 100%;
+}
+
+.logo 
+{
+	width: 120px;
+}
+.user-pic
+{
+	border-radius: 50%;
+	width: 40px;
+	cursor: pointer;
+	margin-right: 20px;
+	margin-left: 20px;
+	
+}
+.logout-pic
+{
+	margin-left: 20px;
+	width: 40px;
+	cursor: pointer;
+
+}
+
+.sub-menu-wrap
+{
+	position: absolute;
+	top: 100%;
+	right: 4%;
+	border-radius: 10px;
+	width: 320px;
+	background: #CCBA78;
+	max-height:0px;
+	overflow: hidden;
+	transition: max-height 0.5s;
+}
+.ext
+{
+	color: #CCBA78;
+}
+.sub-menu-wrap.open-menu
+{
+	max-height:400px;
+}
+.sub-menu
+{
+	background: black;
+	margin: 5px;
+	border-radius:10px;
+	padding: 10px;
+}
+.user-info
+{
+	display: flex;
+	align-items: center;
+}
+.user-info img
+{
+	border-radius: 50%;
+	margin-right: 15px;
+	
+}
+.sub-menu-link
+{
+	display:flex;
+	align-items: center;
+	text-decoration: none;
+	color: black;
+	margin: 12px 12px;
+}
+.sub-menu-link p
+{
+	width:100%;
+	color: #CCBA78;
+}
+.sub-menu-link img
+{
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	margin-right: 50px;
+	padding: 8px;
+}
+.sub-menu-link span
+{
+	font-size: 22px;
+	transition: transform 0.5s;
+}
+.sub-menu-link:hover span
+{
+	transform: translateX(5px);
+}
+.sub-menu-link:hover p
+{
+	font-weight: 800;
+}
+.user-info h2
+{
+	font-weight: 700;
+}
+
+nav {
+    font-weight: 700;
+    background: black;
+    padding: 10px 3%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+nav ul {
+    width: 100%;
+    text-align: right;
+}
+
+nav ul li {
+    display: inline-block;
+    list-style: none;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    position: relative; 
+}
+
+nav ul li a {
+    color: #CCBA78;
+    text-decoration: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+nav ul li .dropdown-content {
+    display: none; 
+    position: absolute;
+    background-color: black;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    top: 100%; 
+    left: 0;
+    opacity: 0; 
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    visibility: hidden;
+}
+
+nav ul li .dropdown-content a {
+    color: #CCBA78;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    cursor: pointer;
+}
+
+nav ul li .dropdown-content a:hover {
+    color: #fff;
+}
+
+nav ul li:hover .dropdown-content {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+}
+
+nav ul li:hover a {
+    color: #CCBA78;
+}
+
+nav ul li .dropdown-content a {
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+
+.b1
+{
+	color: #000000;
+	font-weight: bold;
+	font-size: 17px;
+}
+.sb
+{
+	height: 10px;
+	color: #000000;
+	font-weight: bold;
+	font-size: 17px;
+}
+.ind_button
+{
+	background: linear-gradient(60deg, #CCBA78, white);
+	margin-left: 15px;
+	border-radius: 10px;
+	padding: 10px;
+	font-size: 20px;
+}
+.complaint_status_form
+{
+	position: relative;
+}
+
+.paybll_pg td
+{
+	width: 30%;
+	height: 30px;
+	padding: 10px;
+	
+}
+
+.input-box {
+    position: relative;
+    width: 100%;
+}
+
+.searchi {
+    width: 100%;
+    padding: 10px;
+    padding-right: 40px; 
+    display: block;
+    box-sizing: border-box; 
+}
+
+.searchb {
+    position: absolute;
+    top: 50%;
+    right: 10px; 
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.searchb i {
+    font-size: 20px;
+    color: grey;
+}
+
+.bg1
+{
+	background: url(assets/image1.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	width: 100%;
+	background-attachment: scroll;
+	background-position: center; 
+}
+.intro
+{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: white;
+	font-size: 65px;
+}
+.sub-menu hr
+{
+	margin-top: 15px;
+	height: 1px;
+	width: 100%;
+	color: #CCBA78;
+}
+.bg21
+{
+	display: flex;
+	width: 50%;
+	border-radius:10px;
+	border: 5px solid black;
+	height:50%;
+	background-color: white;
+}
+
+.pagination {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 20px;
+        margin-right: 40px;
+}
+
+.pagination a, .pagination span {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    margin: 4px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.pagination span {
+    background-color: #CCBA78;
+    color: white;
+    border: 1px solid #CCBA78;
+}
+
+.pagination a:hover {
+    background-color: #8E8254;
+    border: 1px solid #999;
+}
+
+.pagination a {
+    background-color: #f9f9f9;
 }
